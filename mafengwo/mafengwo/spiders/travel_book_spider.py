@@ -26,7 +26,7 @@ class TravelSpider(BaseSpider):
     def parse(self, response):
         responseSelector = HtmlXPathSelector(response)
         init_url = responseSelector.select(u'//div[@class="gl_list"]/a/@href').extract()
-        for i in init_url: self.urlListObject.pushLink(self.urlList ,self.base_url + i)
+        for i in init_url: self.urlListObject.lpushLink(self.urlList ,self.base_url + i)
         for i in range(2,20):
             next_link = self.top_url + str(i)
             yield Request(url = next_link , callback = self.detail_parse)

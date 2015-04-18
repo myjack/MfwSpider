@@ -37,7 +37,7 @@ class TravelSpider(BaseSpider):
         json = json_mod.loads(response.body.decode('iso-8859-1'))
         if json['ret'] == "1":
             for i in json['data']:
-                for j in i : self.urlListObject.pushLink(self.urlList ,self.base_url + j["url"])
+                for j in i : self.urlListObject.lpushLink(self.urlList ,self.base_url + j["url"])
         else: print "response.url not be used !"
         a = self.urlListObject.lenList(self.urlList)
         print a

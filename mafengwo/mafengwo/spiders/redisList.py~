@@ -18,7 +18,7 @@ class urlList():
         self.Redis   = redis.Redis(connection_pool = self.pool)
 
     # push a new link at the end of list
-    def pushLink(self,rlist,value):
+    def lpushLink(self,rlist,value):
         return self.Redis.lpush(rlist,value)
 
     #return the last link
